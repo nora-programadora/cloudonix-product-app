@@ -42,12 +42,12 @@ export class ProductListComponent implements OnInit {
   openAddProductDialog(product?: any) {
     const dialogRef = this.dialog.open(AddProductComponent, {
       width: '400px',
-      data: { product } // Pasar el producto al diálogo
+      data: { product } 
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'saved') {
-        this.refreshProducts(); // Actualizar la lista de productos
+        this.refreshProducts(); 
       }
     });
   }

@@ -1,5 +1,7 @@
-<!-- product-list.component.html -->
-<button mat-raised-button color="primary" (click)="openAddProductDialog()">Add Product</button>
+
+<div class="button-container">
+  <button mat-raised-button color="primary" (click)="openAddProductDialog()">Add Product</button>
+</div>
 <div class="product-list">
   <table mat-table [dataSource]="products" class="mat-elevation-z8">
     
@@ -31,9 +33,15 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef> Actions </th>
       <td mat-cell *matCellDef="let element">
-        <button mat-button (click)="viewProductDetails(element)">View</button>
-        <button mat-button (click)="editProduct(element)">Edit</button>
-        <button mat-button (click)="deleteProduct(element.id)">Delete</button>
+         <button mat-icon-button (click)="viewProductDetails(element)" aria-label="View">
+            <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-icon-button (click)="editProduct(element)" aria-label="Edit">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="deleteProduct(element.id)" aria-label="Delete">
+            <mat-icon>delete</mat-icon>
+        </button>
       </td>
     </ng-container>
 

@@ -18,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddProductComponent } from './components/add-product/add-product.component'; 
 
@@ -43,7 +43,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     MatTableModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatIconModule
   ],
   providers: [AuthSeviceService, ProductService],
   bootstrap: [AppComponent]

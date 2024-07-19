@@ -1,0 +1,27 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add {
+  width: fit-content;
+  margin: auto;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.mat-dialog-actions {
+  padding: 8px 0;
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  box-sizing: content-box;
+  margin-bottom: -24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 16px;
+}

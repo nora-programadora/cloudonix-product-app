@@ -1,0 +1,82 @@
+<h1 mat-dialog-title>{{data.product ? 'Edit Product' : 'Add Product'}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="productForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+      <mat-error *ngIf="productForm.get('name')?.hasError('required')">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+      <mat-error *ngIf="productForm.get('description')?.hasError('required')">
+        Description is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>SKU</mat-label>
+      <input matInput formControlName="sku">
+      <mat-error *ngIf="productForm.get('sku')?.hasError('required')">
+        SKU is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cost</mat-label>
+      <input matInput type="number" formControlName="cost">
+      <mat-error *ngIf="productForm.get('cost')?.hasError('required')">
+        Cost is required
+      </mat-error>
+      <mat-error *ngIf="productForm.get('cost')?.hasError('min')">
+        Cost must be a positive number
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Type Dropdown -->
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option value="furniture">Furniture</mat-option>
+        <mat-option value="equipment">Equipment</mat-option>
+        <mat-option value="stationary">Stationary</mat-option>
+        <mat-option value="part">Part</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Available Checkbox -->
+    <mat-checkbox formControlName="available">Available</mat-checkbox>
+
+    <!-- Backlog Spinner -->
+    <mat-form-field appearance="fill">
+      <mat-label>Backlog</mat-label>
+      <input matInput type="number" formControlName="backlog">
+    </mat-form-field>
+
+    <!-- Custom Properties -->
+    <div formArrayName="customProperties">
+      <div *ngFor="let property of customProperties.controls; let i = index">
+        <mat-form-field appearance="fill">
+          <mat-label>Key</mat-label>
+          <input matInput [formGroupName]="i" formControlName="key">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Value</mat-label>
+          <input matInput [formGroupName]="i" formControlName="value">
+        </mat-form-field>
+
+        <button mat-button (click)="removeCustomProperty(i)">Remove</button>
+      </div>
+    </div>
+    <button mat-raised-button color="primary" (click)="addCustomProperty()" class="add">Add Custom Property</button>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="saveProduct()">Save</button>
+</div>
