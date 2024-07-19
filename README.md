@@ -23,8 +23,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Preview of the app 
 
-![Captura de pantalla 2024-07-18 212946](https://github.com/user-attachments/assets/fc5741d2-dd27-4562-b8fb-7cc22f0d3281)
-![Captura de pantalla 2024-07-18 212926](https://github.com/user-attachments/assets/1a9952aa-ead4-425c-b44e-42c839e37222)
-![Captura de pantalla 2024-07-18 212859](https://github.com/user-attachments/assets/a68f79a1-38b8-4940-a424-267db81a4097)
-![Captura de pantalla 2024-07-18 212839](https://github.com/user-attachments/assets/27e5df22-69e1-4d4f-8a42-92151240ceb6)
 ![Captura de pantalla 2024-07-18 212813](https://github.com/user-attachments/assets/ec717297-6449-49d6-a0cd-e0be24eee0eb)
+
+![Captura de pantalla 2024-07-18 212839](https://github.com/user-attachments/assets/27e5df22-69e1-4d4f-8a42-92151240ceb6)
+
+![Captura de pantalla 2024-07-18 212859](https://github.com/user-attachments/assets/a68f79a1-38b8-4940-a424-267db81a4097)
+
+![Captura de pantalla 2024-07-18 212926](https://github.com/user-attachments/assets/1a9952aa-ead4-425c-b44e-42c839e37222)
+
+![Captura de pantalla 2024-07-18 212946](https://github.com/user-attachments/assets/fc5741d2-dd27-4562-b8fb-7cc22f0d3281)
