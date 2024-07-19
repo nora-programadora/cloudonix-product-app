@@ -6,10 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 To get started with the application locally, follow these steps:
 
-1. **Clone the Repository**
-2. 
-   git clone <repository-url>
-   cd <repository-directory>
+1. **Clone the Repository** git clone <repository-url>
+2. **Go to the Repository** cd <repository-url>
+3. run `npm install`
+4. run `ng serve`
 
 
 ## notes: 
