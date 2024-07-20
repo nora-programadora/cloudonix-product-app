@@ -25,14 +25,22 @@ export class ProductService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${authKey}`);
     return this.http.get<any>(`${this.apiUrl}/${id}`, { headers });
   }
-  
+
   addProduct(productData: any, authKey: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${authKey}`);
     return this.http.post<any>(this.apiUrl, productData, { headers });
   }
 
-  updateProduct(id: number, productData: any, authKey: string): Observable<any> {
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${authKey}`);
-    return this.http.patch<any>(`${this.apiUrl}/${id}`, productData, { headers });
+  // updateProduct(id: number, productData: any, authKey: string): Observable<any> {
+  //   const headers = new HttpHeaders().set('Authorization', `Bearer ${authKey}`);
+  //   return this.http.patch<any>(`${this.apiUrl}/${id}`, productData, { headers });
+  // }
+
+  updateProduct(id: number, productData: any, authKey: string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${authKey}`
+    });
+    return this.http.patch(`${this.apiUrl}/${id}`, productData, { headers });
   }
 }

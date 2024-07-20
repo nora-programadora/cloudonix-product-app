@@ -28,14 +28,12 @@ export class AddProductComponent implements OnInit {
       type: [data.product && data.product.profile ? data.product.profile.type : 'furniture'],
       available: [data.product && data.product.profile ? data.product.profile.available : true],
       backlog: [data.product && data.product.profile ? data.product.profile.backlog : ''],
-      customProperties: this.fb.array([]) // Propiedad para customProperties
+      customProperties: this.fb.array([])
     });
 
-    // Establece el authKey
     const key = this.authService.getAuthKey();
-    this.authKey = key ? key : ''; 
+    this.authKey = key ? key : '';
 
-    // Inicializar propiedades personalizadas si existen
     if (data.product && data.product.profile && data.product.profile.customProperties) {
       this.initializeCustomProperties(data.product.profile.customProperties);
     }
@@ -56,6 +54,40 @@ export class AddProductComponent implements OnInit {
     this.productForm.setControl('customProperties', customPropertiesFormArray);
   }
 
+  // saveProduct() {
+  //   if (this.productForm.valid) {
+  //     const formValue = this.productForm.value;
+  //     const productData: any = {
+  //       name: formValue.name,
+  //       description: formValue.description,
+  //       sku: formValue.sku,
+  //       cost: formValue.cost
+  //     };
+
+  //     // Add custom properties only if they exist
+  //     if (formValue.customProperties && formValue.customProperties.length > 0) {
+  //       productData.profile = {
+  //         type: formValue.type,
+  //         available: formValue.available,
+  //         backlog: formValue.backlog,
+  //         customProperties: formValue.customProperties
+  //       };
+  //     }
+
+  //     if (this.data.product) {
+  //       // Edit product
+  //       this.productService.updateProduct(this.data.product.id, productData, this.authKey).subscribe(() => {
+  //         this.dialogRef.close('saved');
+  //       });
+  //     } else {
+  //       // Add new product
+  //       this.productService.addProduct(productData, this.authKey).subscribe(() => {
+  //         this.dialogRef.close('saved');
+  //       });
+  //     }
+  //   }
+  // }
+
   saveProduct() {
     if (this.productForm.valid) {
       const formValue = this.productForm.value;
@@ -72,19 +104,34 @@ export class AddProductComponent implements OnInit {
         }
       };
 
+      // Verificar la estructura del objeto antes de enviarlo
+      console.log('Product Data:', JSON.stringify(productData, null, 2));
+
       if (this.data.product) {
         // Edit product
-        this.productService.updateProduct(this.data.product.id, productData, this.authKey).subscribe(() => {
-          this.dialogRef.close('saved');
-        });
+        this.productService.updateProduct(this.data.product.id, productData, this.authKey).subscribe(
+          () => {
+            this.dialogRef.close('saved');
+          },
+          (error) => {
+            console.error('Update Product Error:', error); // Registrar el error
+          }
+        );
       } else {
         // Add new product
-        this.productService.addProduct(productData, this.authKey).subscribe(() => {
-          this.dialogRef.close('saved');
-        });
+        this.productService.addProduct(productData, this.authKey).subscribe(
+          () => {
+            this.dialogRef.close('saved');
+          },
+          (error) => {
+            console.error('Add Product Error:', error); // Registrar el error
+          }
+        );
       }
     }
   }
+
+
 
   closeDialog() {
     this.dialogRef.close();
