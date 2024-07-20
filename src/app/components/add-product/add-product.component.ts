@@ -54,40 +54,6 @@ export class AddProductComponent implements OnInit {
     this.productForm.setControl('customProperties', customPropertiesFormArray);
   }
 
-  // saveProduct() {
-  //   if (this.productForm.valid) {
-  //     const formValue = this.productForm.value;
-  //     const productData: any = {
-  //       name: formValue.name,
-  //       description: formValue.description,
-  //       sku: formValue.sku,
-  //       cost: formValue.cost
-  //     };
-
-  //     // Add custom properties only if they exist
-  //     if (formValue.customProperties && formValue.customProperties.length > 0) {
-  //       productData.profile = {
-  //         type: formValue.type,
-  //         available: formValue.available,
-  //         backlog: formValue.backlog,
-  //         customProperties: formValue.customProperties
-  //       };
-  //     }
-
-  //     if (this.data.product) {
-  //       // Edit product
-  //       this.productService.updateProduct(this.data.product.id, productData, this.authKey).subscribe(() => {
-  //         this.dialogRef.close('saved');
-  //       });
-  //     } else {
-  //       // Add new product
-  //       this.productService.addProduct(productData, this.authKey).subscribe(() => {
-  //         this.dialogRef.close('saved');
-  //       });
-  //     }
-  //   }
-  // }
-
   saveProduct() {
     if (this.productForm.valid) {
       const formValue = this.productForm.value;
