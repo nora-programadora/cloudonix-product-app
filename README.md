@@ -11,17 +11,19 @@ To get started with the application locally, follow these steps:
 3. run `npm install`
 4. run `ng serve`
 
+## notes:
 
-## notes: 
-  Added these packages 
-  
-  `ng add @angular/material`
-  `npm install @angular/forms`
-  `npm install @angular/common/http`
+Added these packages
+
+`ng add @angular/material`
+`npm install @angular/forms`
+`npm install @angular/common/http`
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Preview of the app 
+### the code to access its 01234567890
+
+## Preview of the app
 
 ![Captura de pantalla 2024-07-18 212813](https://github.com/user-attachments/assets/ec717297-6449-49d6-a0cd-e0be24eee0eb)
 
